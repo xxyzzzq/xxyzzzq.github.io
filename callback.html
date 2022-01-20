@@ -5,15 +5,22 @@
 <h2>Self Redirect</h2>
 <p>Click to redirect to self:</p>
 
-<button onclick="selfRedirect()">Self redirect</button>
 
 <script>
-function selfRedirect() {
-    var redirectUrl = window.location.href;
-    redirectUrl = redirectUrl.replace("callback", "callback/bounced")
-    window.location.replace(redirectUrl)
-}
+  window.addEventListener('DOMContentLoaded', function() {
+      var redirectUrl = 'https://xxyzzzq.github.io/callback/bounced';
+      if (window.location.search) {
+          redirectUrl += window.location.search;
+      }
+      if (window.location.hash) {
+          redirectUrl += window.location.hash;
+      }
+      document.getElementById('redirectButton').onclick = () => {
+          window.location.href = redirectUrl;
+      };
+  });
 </script>
 
+<button id='redirectButton'>Redirect</button>
 </body>
 </html>
