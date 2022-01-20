@@ -9,8 +9,9 @@
 
 <script>
 function selfRedirect() {
-  window.location.replace(window.location.href);
-  window.location.reload();
+    var redirectUrl = window.location.href;
+    redirectUrl = redirectUrl.replace("callback", "callback/bounced")
+    window.location.replace(redirectUrl)
 }
 </script>
 
