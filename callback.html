@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>URL redirect</title>
 
-<h2>Self Redirect</h2>
-<p>Click to redirect to self:</p>
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+                var redirectUri = 'https://xxyzzzq.github.io/callback/bounced';
 
+                if (window.location.search) {
+                    redirectUri += window.location.search;
+                }
+                if (window.location.hash) {
+                    redirectUri += window.location.hash;
+                }
 
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-      var redirectUrl = 'https://xxyzzzq.github.io/callback/bounced';
-      if (window.location.search) {
-          redirectUrl += window.location.search;
-      }
-      if (window.location.hash) {
-          redirectUrl += window.location.hash;
-      }
-      document.getElementById('redirectButton').onclick = () => {
-          window.location.href = redirectUrl;
-      };
-  });
-</script>
-
-<button id='redirectButton'>Redirect</button>
-</body>
+                document.getElementById('redirectButton').onclick = () => {
+                    window.location.href = redirectUri;
+                };
+            });
+        </script>
+    </head>
+    <body>
+        <div id='container'>
+            <h3 id='heading'>URL redirect</h3>
+            <h5>Click the following button for redirection</h5>
+            <button id='redirectButton'>Continue</button>
+        </div>
+    </body>
 </html>
